@@ -1,10 +1,11 @@
 import express from "express";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import "dotenv/config";
+
 import authRouter from "./api/auth.js";
 import postsRouter from "./api/posts.js";
 import usersRouter from "./api/users.js";
-import "dotenv/config";
-import mongoose from "mongoose";
-import bodyParser from "body-parser";
 
 const app = express();
 app.use(bodyParser.json());
@@ -15,7 +16,6 @@ app.use("/api/auth", authRouter);
 app.use("/api/posts", postsRouter);
 app.use("/api/users", usersRouter);
 
-console.log(process.env.MONGO_URI);
 // start
 
 // mongoose.connect(process.env.MONGO_URI, () => {

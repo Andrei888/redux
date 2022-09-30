@@ -19,8 +19,8 @@ app.use("/api/users", usersRouter);
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-  app.get("*", (res, req) => {
-    req.sendFile(path.rezolve(__dirname, "build", "index.html"));
+  app.get("*", (req, res) => {
+    req.sendFile(path.resolve(__dirname, "build", "index.html"));
   });
 }
 

@@ -16,6 +16,13 @@ app.use("/api/auth", authRouter);
 app.use("/api/posts", postsRouter);
 app.use("/api/users", usersRouter);
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (res, req) => {
+    req.sendFile(path.rezolve(__dirname, "build", "index.html"));
+  });
+}
+
 // start
 
 const connectDB = async () => {

@@ -1,17 +1,19 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./navbar.css";
 import logo from "../../logo.jpeg";
 
 function Navbar() {
   return (
-    <div class="header">
-      <a href="/">
-        <img src={logo} alt="React Logo" />
-      </a>
+    <div className="header fixed w-full md:flex justify-between bg-cyan-400 p-3">
+      <div className="w-20">
+        <a href="/">
+          <img src={logo} alt="React Logo" />
+        </a>
+      </div>
       <div className="navBar">
         <ul>
-          <li>
+          <li className="p-2">
             <NavLink
               className={(navData) => (navData.isActive ? "active" : "")}
               to="/register"
@@ -19,7 +21,7 @@ function Navbar() {
               Register
             </NavLink>
           </li>
-          <li>
+          <li className="p-2">
             <NavLink
               className={(navData) => (navData.isActive ? "active" : "")}
               to="/login"
@@ -27,7 +29,7 @@ function Navbar() {
               Login
             </NavLink>
           </li>
-          <li>
+          <li className="p-2">
             <NavLink
               className={(navData) => (navData.isActive ? "active" : "")}
               to="/posts"

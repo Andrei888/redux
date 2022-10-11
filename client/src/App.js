@@ -1,24 +1,30 @@
-import "./App.css";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Posts from "./components/posts/Posts";
 import Navbar from "./components/layout/Navbar";
 import PostPage from "./components/posts/PostPage";
+import Landing from "./components/layout/Landing";
+import { Provider } from "react-redux";
+import store from "./store";
+import Alert from "./components/layout/Alert";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Navigate to="/register" />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/posts/:postId" element={<PostPage />} />
-        <Route path="/posts" element={<Posts />} />
-      </Routes>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Navbar />
+        <Alert />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/posts/:postId" element={<PostPage />} />
+          <Route path="/posts" element={<Posts />} />
+        </Routes>
+      </div>
+    </Provider>
   );
 }
 

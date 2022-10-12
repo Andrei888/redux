@@ -67,7 +67,7 @@ export const login =
         type: USER_LOADED,
         payload: response.data,
       });
-      setAlert("Login Successfuly", "danger", 3000);
+      dispatch(setAlert("Login Successfuly", "danger", 3000));
     } catch (error) {
       console.log(error);
       const errors = error.response.data.errors;

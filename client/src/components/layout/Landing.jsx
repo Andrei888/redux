@@ -1,24 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Landing() {
   return (
     <div className="flex min-h-screen justify-center content-center items-center">
       <ul className="flex justify-center content-center p-10 bg-white rounded-lg">
         <li className="p-4">
-          <a
+          <Link
             className="rounded-full border-cyan-400 border-2 bg-cyan-400 p-4 m-2"
-            href="/register"
+            to="/register"
           >
             Register
-          </a>
+          </Link>
         </li>
         <li className="p-4">
-          <a
+          <Link
             className="rounded-full border-cyan-400 border-2 bg-cyan-400 p-4 m-2 hover:red"
-            href="/login"
+            to="/login"
           >
             Login
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

@@ -24,6 +24,7 @@ export const register =
         payload: response.data,
       });
     } catch (error) {
+      console.log(error);
       const errors = error.response.data.errors;
 
       if (errors) {

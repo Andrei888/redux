@@ -4,6 +4,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   USER_LOADED,
+  LOGOUT_SUCCESS,
 } from "../actions/constants";
 
 const initialState = {
@@ -30,6 +31,9 @@ export default function (state = initialState, action) {
       return { ...state, token: null, isAuthenticated: false, loading: false };
     case USER_LOADED:
       return { ...state, isAuthenticated: true, loading: false, user: payload };
+    case LOGOUT_SUCCESS:
+      localStorage.removeItem("token");
+      return { ...state, token: null, isAuthenticated: false, loading: false };
     default:
       return state;
   }

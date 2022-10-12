@@ -57,7 +57,7 @@ export const login =
     };
     const body = JSON.stringify(user);
     try {
-      const response = await axios.post("/api/users", body, config);
+      const response = await axios.post("/api/auth", body, config);
 
       dispatch({
         type: LOGIN_SUCCESS,

@@ -1,36 +1,27 @@
 import React, { useState } from "react";
+import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
+import { login } from "../../actions/auth";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
-    confirmationpassword: "",
   });
   const { email, password } = formData;
 
   const sumbitHandler = async (e) => {
     e.prevendDefault();
-    const credential = {
+    login({
       email,
       password,
-    };
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const body = JSON.stringify(credential);
-
-      const response = await axios.post("/api/auth", body, config);
-      console.log(response);
-    } catch (error) {
-      console.log(error.response.data);
-    }
+    });
   };
-  return (
+  return isAuthenticated ? (
+    <Redirect to="home" />
+  ) : (
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">
         <h1 className="">Login</h1>
@@ -68,4 +59,12 @@ const Login = () => {
   );
 };
 
-export default Login;
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { login })(Login);

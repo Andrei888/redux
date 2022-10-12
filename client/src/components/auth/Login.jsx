@@ -34,7 +34,6 @@ const Login = () => {
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">
         <h1 className="">Login</h1>
-        <h2>Create your account</h2>
         <form className="form" onSubmit={(e) => sumbitHandler(e)}>
           <div className="form-group">
             <input
@@ -61,7 +60,7 @@ const Login = () => {
             />
           </div>
           <div className="form-group">
-            <input className="btn" type="submit" value="Register" />
+            <input className="btn" type="submit" value="Submit" />
           </div>
         </form>
       </div>

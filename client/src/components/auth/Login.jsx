@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import { login } from "../../actions/auth";
 import { connect } from "react-redux";
@@ -20,7 +20,7 @@ const Login = ({ login, isAuthenticated }) => {
     });
   };
   return isAuthenticated ? (
-    <Redirect to="home" />
+    <Navigate to="home" />
   ) : (
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">

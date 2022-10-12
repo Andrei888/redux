@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { login } from "../../actions/auth";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -19,7 +19,7 @@ const Login = ({ login, isAuthenticated }) => {
     });
   };
   return isAuthenticated ? (
-    <Navigate to="home" />
+    <Navigate to="/" />
   ) : (
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">

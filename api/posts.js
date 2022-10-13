@@ -62,8 +62,8 @@ router.get("/", async (req, res) => {
 
 // @route         GET api/posts/:seo
 // @description   Get post by seo
-// @access        Private - only logged in users can see all posts from all users
-router.get("/:postseo", auth, async (request, response) => {
+// @access        Public
+router.get("/:postseo", async (request, response) => {
   // sort the post desceding by added date
   try {
     const post = await Post.findOne({ age: request.params.postseo });

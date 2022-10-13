@@ -9,7 +9,7 @@ const Posts = ({ setAlert }) => {
   const [posts, setPosts] = useState([]);
   async function fetchData() {
     try {
-      const res = axios.get("/api/posts");
+      const res = await axios.get("/api/posts");
       const data = res.data;
       console.log(data);
       setPosts(data);

@@ -43,10 +43,7 @@ const Posts = ({ setAlert }) => {
             return (
               <div className="post-card" key={post.id}>
                 <h2 className="post-title">{post.title}</h2>
-                <p className="post-body">{post.body}</p>
-                <div className="button">
-                  <div className="delete-btn">Delete</div>
-                </div>
+                <p className="post-body">{post.text}</p>
               </div>
             );
           })}

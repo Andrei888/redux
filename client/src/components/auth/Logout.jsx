@@ -8,6 +8,7 @@ import { logout } from "../../actions/auth";
 const Logout = ({ setAlert, logout, isAuthenticated }) => {
   const logoutHandler = (e) => {
     e.preventDefault();
+
     logout();
     setAlert("Logout completed", "danger", 3000);
   };

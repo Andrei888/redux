@@ -6,24 +6,64 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 function Navbar({ isAuthenticated }) {
-  let loginBtn;
+  let loggedinNav;
   if (!isAuthenticated) {
-    loginBtn = (
-      <NavLink
-        className={(navData) => (navData.isActive ? "active" : "")}
-        to="/login"
-      >
-        Login
-      </NavLink>
+    loggedinNav = (
+      <ul>
+        <li className="p-2">
+          <NavLink
+            className={(navData) => (navData.isActive ? "active" : "")}
+            to="/login"
+          >
+            Login
+          </NavLink>
+        </li>
+        <li className="p-2">
+          <NavLink
+            className={(navData) => (navData.isActive ? "active" : "")}
+            to="/register"
+          >
+            Register
+          </NavLink>
+        </li>
+        <li className="p-2">
+          <NavLink
+            className={(navData) => (navData.isActive ? "active" : "")}
+            to="/filme"
+          >
+            Posts
+          </NavLink>
+        </li>
+      </ul>
     );
   } else {
-    loginBtn = (
-      <NavLink
-        className={(navData) => (navData.isActive ? "active" : "")}
-        to="/logout"
-      >
-        Logout
-      </NavLink>
+    loggedinNav = (
+      <ul>
+        <li className="p-2">
+          <NavLink
+            className={(navData) => (navData.isActive ? "active" : "")}
+            to="/filme"
+          >
+            Posts
+          </NavLink>
+        </li>
+        <li className="p-2">
+          <NavLink
+            className={(navData) => (navData.isActive ? "active" : "")}
+            to="/filmele-mele"
+          >
+            Filmele mele
+          </NavLink>
+        </li>
+        <li className="p-2">
+          <NavLink
+            className={(navData) => (navData.isActive ? "active" : "")}
+            to="/logout"
+          >
+            Logout
+          </NavLink>
+        </li>
+      </ul>
     );
   }
   return (
@@ -33,27 +73,7 @@ function Navbar({ isAuthenticated }) {
           <img src={logo} alt="React Logo" />
         </a>
       </div>
-      <div className="navBar">
-        <ul>
-          <li className="p-2">
-            <NavLink
-              className={(navData) => (navData.isActive ? "active" : "")}
-              to="/register"
-            >
-              Register
-            </NavLink>
-          </li>
-          <li className="p-2">{loginBtn}</li>
-          <li className="p-2">
-            <NavLink
-              className={(navData) => (navData.isActive ? "active" : "")}
-              to="/posts"
-            >
-              Posts
-            </NavLink>
-          </li>
-        </ul>
-      </div>
+      <div className="navBar">{loggedinNav}</div>
     </div>
   );
 }

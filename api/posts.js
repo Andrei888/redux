@@ -66,7 +66,7 @@ router.get("/", async (req, res) => {
 router.get("/:postseo", auth, async (request, response) => {
   // sort the post desceding by added date
   try {
-    const post = await Post.findById(request.params.postseo);
+    const post = await Post.findOne({ age: request.params.postseo });
 
     if (!post) {
       return response.status(404).json({ msg: "Post not found" });

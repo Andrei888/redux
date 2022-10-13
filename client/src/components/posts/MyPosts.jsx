@@ -4,12 +4,19 @@ import axios from "axios";
 import { setAlert } from "../../actions/alerts";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import store from "../../store";
 
 const MyPosts = ({ setAlert }) => {
   const [posts, setPosts] = useState([]);
   async function fetchData() {
+    const token = store.getState().auth.token;
+    console.log(token);
     try {
-      const res = await axios.get("/api/myposts");
+      const res = await axios.get("/api/myposts", {
+        headers: {
+          "x-auth-token": token ? token : "",
+        },
+      });
       const data = res.data;
       console.log(data);
       setPosts(data);

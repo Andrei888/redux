@@ -53,6 +53,7 @@ router.post(
 // @access Public
 
 router.get("/", async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   // sort the post by date
   try {
     const posts = await Post.find().sort({ date: -1 });
@@ -64,6 +65,7 @@ router.get("/", async (req, res) => {
 // @description   Get post by seo
 // @access        Public
 router.get("/:postseo", async (request, response) => {
+  response.header("Access-Control-Allow-Origin", "*");
   // sort the post desceding by added date
   try {
     const post = await Post.findOne({ age: request.params.postseo });

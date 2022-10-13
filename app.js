@@ -5,6 +5,7 @@ import "dotenv/config";
 
 import authRouter from "./api/auth.js";
 import postsRouter from "./api/posts.js";
+import userpostsRouter from "./api/myposts.js";
 import usersRouter from "./api/users.js";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postsRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/myposts", userpostsRouter);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

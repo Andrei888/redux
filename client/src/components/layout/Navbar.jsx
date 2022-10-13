@@ -31,7 +31,7 @@ function Navbar({ isAuthenticated }) {
             className={(navData) => (navData.isActive ? "active" : "")}
             to="/filme"
           >
-            Posts
+            Filme
           </NavLink>
         </li>
       </ul>
@@ -44,7 +44,7 @@ function Navbar({ isAuthenticated }) {
             className={(navData) => (navData.isActive ? "active" : "")}
             to="/filme"
           >
-            Posts
+            Filme
           </NavLink>
         </li>
         <li className="p-2">

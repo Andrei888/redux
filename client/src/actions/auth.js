@@ -50,6 +50,7 @@ export const login =
     const config = {
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
     };
     const user = {

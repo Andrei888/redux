@@ -60,13 +60,13 @@ router.get("/", async (req, res) => {
   } catch (error) {}
 });
 
-// @route         GET api/posts/:id
-// @description   Get post by id
+// @route         GET api/posts/:seo
+// @description   Get post by seo
 // @access        Private - only logged in users can see all posts from all users
-router.get("/:post_id", auth, async (request, response) => {
+router.get("/:postseo", auth, async (request, response) => {
   // sort the post desceding by added date
   try {
-    const post = await Post.findById(request.params.post_id);
+    const post = await Post.findById(request.params.postseo);
 
     if (!post) {
       return response.status(404).json({ msg: "Post not found" });
@@ -75,8 +75,8 @@ router.get("/:post_id", auth, async (request, response) => {
     response.json(post);
   } catch (error) {
     console.error(error.message);
-    // check if the id is in correct format
-    if (error.kind == "ObjectId") {
+    // check if the seo is in correct format
+    if (error.kind == "text") {
       return response.status(404).json({ msg: "Post not found" });
     }
     response.status(500).send("Server error");

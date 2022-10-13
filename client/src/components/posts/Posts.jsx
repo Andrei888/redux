@@ -35,7 +35,7 @@ const Posts = ({ setAlert }) => {
               <div className="post-card p-4" key={post.id}>
                 <h2 className="post-title">{post.title}</h2>
                 <p className="post-body">{post.text}</p>
-                <Link to="/filme/{post.id}">Detalii despre acest film</Link>
+                <Link to="/filme/`{post.id}`">Detalii despre acest film</Link>
               </div>
             );
           })}

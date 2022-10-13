@@ -15,7 +15,13 @@ const router = express.Router();
 
 router.post(
   "/",
-  [auth, [check("text", "Post must exist").not().isEmpty()]],
+  [
+    auth,
+    [
+      check("title", "Post must exist").not().isEmpty(),
+      check("text", "Post must exist").not().isEmpty(),
+    ],
+  ],
   async (req, res) => {
     let errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -26,10 +32,12 @@ router.post(
       const user = await User.findById(req.user.id);
       console.log("Found user", user);
       const post = new Post({
+        title: req.body.title,
         text: req.body.text,
         name: user.name,
         avatar: user.avatar,
         user: req.user.id,
+        seo: req.body.title.toLowerCase().split(" ").join("_"),
       });
       const newPost = await post.save();
       res.status(201).json({ post: newPost });

@@ -14,6 +14,10 @@ const postSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  seo: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
   },

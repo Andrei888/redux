@@ -9,9 +9,10 @@ const Posts = ({ setAlert }) => {
   const [posts, setPosts] = useState([]);
   async function fetchData() {
     try {
-      const posts = axios.get("/api/posts");
-      console.log(posts);
-      setPosts(posts);
+      const res = axios.get("/api/posts");
+      const data = res.data;
+      console.log(data);
+      setPosts(data);
       setAlert("Filme Incarcate", "danger", 3000);
     } catch (error) {
       console.log(error);

@@ -29,21 +29,13 @@ const Posts = ({ setAlert }) => {
   return (
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">
-        <div>
-          <Link to="/filme/1">Post 1</Link>
-        </div>
-        <div>
-          <Link to="/filme/2">Post 2</Link>
-        </div>
-        <div>
-          <Link to="/filme/3">Post 3</Link>
-        </div>
         <div className="posts-container">
           {posts.map((post) => {
             return (
-              <div className="post-card" key={post.id}>
+              <div className="post-card p-4" key={post.id}>
                 <h2 className="post-title">{post.title}</h2>
                 <p className="post-body">{post.text}</p>
+                <Link to="/filme/{post.id}">Detalii despre acest film</Link>
               </div>
             );
           })}

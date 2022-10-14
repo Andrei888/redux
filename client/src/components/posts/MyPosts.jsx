@@ -5,6 +5,7 @@ import { setAlert } from "../../actions/alerts";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import store from "../../store";
+import AddMovie from "../../features/Addmovie";
 
 const MyPosts = ({ setAlert }) => {
   const [posts, setPosts] = useState([]);
@@ -33,10 +34,17 @@ const MyPosts = ({ setAlert }) => {
   useEffect(() => {
     fetchData();
   }, []);
+  const showAddMovie = (e) => {
+    e.preventDefault();
+    e.target.classList.toggle("hidden");
+    const showMovie = document.getElementById("addContainer");
+    showMovie.classList.remove("hidden");
+  };
   return (
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">
         <div className="posts-container">
+          {posts.length === 0 && <div>Nu aveti filme adaugate personal.</div>}
           {posts.map((post) => {
             return (
               <div className="post-card p-4" key={post.id}>
@@ -46,6 +54,12 @@ const MyPosts = ({ setAlert }) => {
               </div>
             );
           })}
+          <div className="add-movie">
+            <button onClick={(e) => showAddMovie(e)}>Adauga film</button>
+            <div id="addContainer" className="add-movie-container hidden">
+              <AddMovie />
+            </div>
+          </div>
         </div>
       </div>
     </div>

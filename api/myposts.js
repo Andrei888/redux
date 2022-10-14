@@ -47,7 +47,7 @@ router.get("/", [auth], async (req, res) => {
 // @description   PUT post by id
 // @access        Private
 router.put(
-  "/:post_id",
+  "/",
   [
     auth,
     [

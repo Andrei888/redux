@@ -50,6 +50,7 @@ const MyPosts = ({ setAlert, movies }) => {
     const token = store.getState().auth.token;
     try {
       const url = "/api/posts/" + e.target.getAttribute("data-id");
+      console.log(url);
       const res = await axios.delete(url, {
         headers: {
           "x-auth-token": token ? token : "",

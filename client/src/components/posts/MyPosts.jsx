@@ -8,6 +8,7 @@ import store from "../../store";
 import AddMovie from "../../features/Addmovie";
 
 const MyPosts = ({ setAlert, movies }) => {
+  console.log("my posts");
   const [posts, setPosts] = useState([]);
   async function fetchData() {
     const token = store.getState().auth.token;

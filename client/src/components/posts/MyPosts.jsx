@@ -30,6 +30,7 @@ const MyPosts = ({ setAlert, movies }) => {
     }
   }
   useEffect(() => {
+    console.log("effect-myyy");
     fetchData();
   });
   const showAddMovie = (e) => {

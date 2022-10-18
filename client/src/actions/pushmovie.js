@@ -3,7 +3,7 @@ import { setAlert } from "./alerts";
 import store from "../store";
 import { ADD_MOVIE } from "./constants";
 
-const pushmovie =
+export const pushmovie =
   ({ title, text }) =>
   async (dispatch) => {
     console.log("sxxxbt");
@@ -37,5 +37,3 @@ const pushmovie =
       }
     }
   };
-
-export default pushmovie;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import pushmovie from "../actions/pushmovie";
+import { pushmovie } from "../actions/pushmovie";
 
 const Addmovie = ({ isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -56,6 +56,7 @@ Addmovie.propTypes = {
 };
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
+  movies: state.movies,
 });
 
 export default connect(mapStateToProps, {})(Addmovie);

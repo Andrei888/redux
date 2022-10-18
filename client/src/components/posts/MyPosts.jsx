@@ -11,7 +11,6 @@ const MyPosts = ({ setAlert, movies }) => {
   const [posts, setPosts] = useState([]);
   async function fetchData() {
     const token = store.getState().auth.token;
-    console.log(store.getState());
     try {
       const res = await axios.get("/api/myposts", {
         headers: {
@@ -19,7 +18,6 @@ const MyPosts = ({ setAlert, movies }) => {
         },
       });
       const movies = res.data;
-      console.log(movies);
       setPosts(movies);
       setAlert("Filme Incarcate", "danger", 3000);
     } catch (error) {

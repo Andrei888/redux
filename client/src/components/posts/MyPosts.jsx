@@ -18,6 +18,7 @@ const MyPosts = ({ setAlert, movies }) => {
         },
       });
       const movies = res.data;
+      console.log(movies);
       setPosts(movies);
       setAlert("Filme Incarcate", "danger", 3000);
     } catch (error) {
@@ -86,7 +87,7 @@ const MyPosts = ({ setAlert, movies }) => {
                   className="remove-movie-container hidden"
                 >
                   <p>Esti sigur ca vrei sa stergi acest film?</p>
-                  <button data-id={post.id} onClick={(e) => removeMovie(e)}>
+                  <button data-id={post._id} onClick={(e) => removeMovie(e)}>
                     Da sterge
                   </button>
                 </div>

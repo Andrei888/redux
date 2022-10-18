@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import store from "../../store";
 import AddMovie from "../../features/Addmovie";
 
-const MyPosts = ({ setAlert, movies }) => {
+const MyPosts = ({ setAlert }) => {
   console.log("my posts");
   const [posts, setPosts] = useState([]);
   async function fetchData() {
@@ -33,7 +33,7 @@ const MyPosts = ({ setAlert, movies }) => {
   useEffect(() => {
     console.log("effect-myyy");
     fetchData();
-  });
+  }, []);
   const showAddMovie = (e) => {
     e.preventDefault();
     e.target.classList.toggle("hidden");

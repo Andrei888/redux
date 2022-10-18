@@ -18,7 +18,6 @@ const MyPosts = ({ setAlert, movies }) => {
         },
       });
       const movies = res.data;
-      console.log(movies);
       setPosts(movies);
       setAlert("Filme Incarcate", "danger", 3000);
     } catch (error) {
@@ -51,13 +50,11 @@ const MyPosts = ({ setAlert, movies }) => {
     const token = store.getState().auth.token;
     try {
       const url = "/api/posts/" + e.target.getAttribute("data-id");
-      console.log(url);
       const res = await axios.delete(url, {
         headers: {
           "x-auth-token": token ? token : "",
         },
       });
-      console.log(res);
       setAlert("Film sters", "danger", 3000);
     } catch (error) {
       console.log(error);
@@ -82,10 +79,7 @@ const MyPosts = ({ setAlert, movies }) => {
                 <button onClick={(e) => showRemoveMovie(e)}>
                   Sterge Filmul
                 </button>
-                <div
-                  id="addContainer"
-                  className="remove-movie-container hidden"
-                >
+                <div className="remove-movie-container hidden">
                   <p>Esti sigur ca vrei sa stergi acest film?</p>
                   <button data-id={post._id} onClick={(e) => removeMovie(e)}>
                     Da sterge

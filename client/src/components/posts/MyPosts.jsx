@@ -20,7 +20,6 @@ const MyPosts = ({ setAlert }) => {
       });
       const movies = res.data;
       setPosts(movies);
-      setAlert("Filme Incarcate", "danger", 3000);
     } catch (error) {
       console.log(error);
       const errors = error.posts.data.errors;
@@ -33,7 +32,7 @@ const MyPosts = ({ setAlert }) => {
   useEffect(() => {
     console.log("effect-myyy");
     fetchData();
-  }, []);
+  });
   const showAddMovie = (e) => {
     e.preventDefault();
     e.target.classList.toggle("hidden");

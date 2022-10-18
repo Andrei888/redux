@@ -26,6 +26,7 @@ const PostPage = ({ setAlert }) => {
     }
   }
   useEffect(() => {
+    console.log("effect-post");
     fetchData();
   }, []);
   return (

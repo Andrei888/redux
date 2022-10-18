@@ -11,7 +11,6 @@ const Posts = ({ setAlert }) => {
     try {
       const res = await axios.get("/api/posts");
       const data = res.data;
-      console.log(data);
       setPosts(data);
       setAlert("Filme Incarcate", "danger", 3000);
     } catch (error) {
@@ -24,6 +23,7 @@ const Posts = ({ setAlert }) => {
     }
   }
   useEffect(() => {
+    console.log("effect-postss");
     fetchData();
   }, []);
   return (

@@ -1,7 +1,6 @@
 import axios from "axios";
 import { setAlert } from "./alerts";
 import store from "../store";
-import { ADD_MOVIE } from "./constants";
 
 export const pushmovie = async ({ title, text }) => {
   console.log("sxxxbt");

@@ -13,6 +13,6 @@ export const setAlert = (msg, alertType) => (dispatch) => {
         type: REMOVE_ALERT,
         payload: { msg, alertType, id },
       }),
-    2000
+    1000
   );
 };

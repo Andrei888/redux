@@ -14,7 +14,6 @@ const PostPage = ({ setAlert }) => {
       const url = "/api/posts/" + params.postId;
       const res = await axios.get(url);
       const data = res.data;
-      console.log(data);
       setPosts(data);
       setAlert("Filme Incarcate", "danger", 3000);
     } catch (error) {

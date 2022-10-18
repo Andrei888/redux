@@ -38,6 +38,34 @@ const MyPosts = ({ setAlert, movies }) => {
     const showMovie = document.getElementById("addContainer");
     showMovie.classList.remove("hidden");
   };
+  const showRemoveMovie = (e) => {
+    e.preventDefault();
+    e.target.classList.toggle("hidden");
+    const showMovie = e.target.nextSibling;
+    showMovie.classList.remove("hidden");
+  };
+  const removeMovie = async (e) => {
+    e.preventDefault();
+
+    const token = store.getState().auth.token;
+    try {
+      const url = "/api/posts/" + e.target.getAttribute("data-id");
+      const res = await axios.delete(url, {
+        headers: {
+          "x-auth-token": token ? token : "",
+        },
+      });
+      console.log(res);
+      setAlert("Film sters", "danger", 3000);
+    } catch (error) {
+      console.log(error);
+      const errors = error.posts.data.errors;
+
+      if (errors) {
+        setAlert(errors.msg, "danger", 3000);
+      }
+    }
+  };
   return (
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">
@@ -49,6 +77,18 @@ const MyPosts = ({ setAlert, movies }) => {
                 <h2 className="post-title">{post.title}</h2>
                 <p className="post-body">{post.text}</p>
                 <Link to={`/filme/${post.seo}`}>Detalii despre acest film</Link>
+                <button onClick={(e) => showRemoveMovie(e)}>
+                  Sterge Filmul
+                </button>
+                <div
+                  id="addContainer"
+                  className="remove-movie-container hidden"
+                >
+                  <p>Esti sigur ca vrei sa stergi acest film?</p>
+                  <button data-id={post.id} onClick={(e) => removeMovie(e)}>
+                    Da sterge
+                  </button>
+                </div>
               </div>
             );
           })}

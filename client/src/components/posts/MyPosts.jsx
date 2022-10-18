@@ -102,9 +102,8 @@ const MyPosts = ({ setAlert, movies }) => {
   );
 };
 
-MyPosts.propTypes = (state) => ({
+MyPosts.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  movies: state.movies,
-});
+};
 
 export default connect(null, { setAlert })(MyPosts);

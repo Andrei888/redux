@@ -7,20 +7,20 @@ import PropTypes from "prop-types";
 import store from "../../store";
 import AddMovie from "../../features/Addmovie";
 
-const MyPosts = ({ setAlert }) => {
+const MyPosts = ({ setAlert, movies }) => {
   const [posts, setPosts] = useState([]);
   async function fetchData() {
     const token = store.getState().auth.token;
-    console.log(token);
+    console.log(store.getState());
     try {
       const res = await axios.get("/api/myposts", {
         headers: {
           "x-auth-token": token ? token : "",
         },
       });
-      const data = res.data;
-      console.log(data);
-      setPosts(data);
+      const movies = res.data;
+      console.log(movies);
+      setPosts(movies);
       setAlert("Filme Incarcate", "danger", 3000);
     } catch (error) {
       console.log(error);
@@ -33,7 +33,7 @@ const MyPosts = ({ setAlert }) => {
   }
   useEffect(() => {
     fetchData();
-  }, []);
+  });
   const showAddMovie = (e) => {
     e.preventDefault();
     e.target.classList.toggle("hidden");
@@ -66,8 +66,9 @@ const MyPosts = ({ setAlert }) => {
   );
 };
 
-MyPosts.propTypes = {
+MyPosts.propTypes = (state) => ({
   setAlert: PropTypes.func.isRequired,
-};
+  movies: state.movies,
+});
 
 export default connect(null, { setAlert })(MyPosts);

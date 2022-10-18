@@ -68,7 +68,7 @@ router.get("/:postseo", async (request, response) => {
   response.header("Access-Control-Allow-Origin", "*");
   // sort the post desceding by added date
   try {
-    const post = await Post.findOne({ age: request.params.postseo });
+    const post = await Post.findOne({ seo: request.params.postseo });
 
     if (!post) {
       return response.status(404).json({ msg: "Post not found" });

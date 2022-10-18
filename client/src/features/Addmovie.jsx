@@ -17,6 +17,7 @@ const Addmovie = ({ isAuthenticated }) => {
       title,
       text,
     });
+    setFormData({ title: "", text: "" });
   };
   return (
     <div className="">

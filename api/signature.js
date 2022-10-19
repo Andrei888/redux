@@ -22,3 +22,5 @@ router.get("/", async (req, res) => {
   );
   res.json({ timestamp, signature });
 });
+
+export default router;

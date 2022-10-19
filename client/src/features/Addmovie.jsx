@@ -45,6 +45,8 @@ const Addmovie = ({ isAuthenticated }) => {
             autoComplete="on"
             required
           />
+        </div>
+        <div className="form-group p-3">
           <input
             type="file"
             placeholder="Cover Image"

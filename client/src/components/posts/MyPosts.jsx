@@ -8,7 +8,6 @@ import store from "../../store";
 import AddMovie from "../../features/Addmovie";
 
 const MyPosts = ({ setAlert }) => {
-  console.log("my posts");
   const [posts, setPosts] = useState([]);
   async function fetchData() {
     const token = store.getState().auth.token;
@@ -30,9 +29,8 @@ const MyPosts = ({ setAlert }) => {
     }
   }
   useEffect(() => {
-    console.log("effect-myyy");
     fetchData();
-  });
+  }, []);
   const showAddMovie = (e) => {
     e.preventDefault();
     e.target.classList.toggle("hidden");

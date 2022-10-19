@@ -38,6 +38,10 @@ router.post(
         avatar: user.avatar,
         user: req.user.id,
         seo: req.body.title.toLowerCase().split(" ").join("_"),
+        image: {
+          id: req.body.imgid,
+          url: req.body.imgurl,
+        },
       });
       const newPost = await post.save();
       res.status(201).json({ post: newPost });

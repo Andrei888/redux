@@ -36,6 +36,10 @@ const postSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  image: {
+    type: Map,
+    of: String,
+  },
 });
 
 export default mongoose.model("posts", postSchema);

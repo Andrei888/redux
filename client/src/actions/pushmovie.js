@@ -11,27 +11,32 @@ export const pushmovie = async ({ title, text, file }) => {
   //upload image
   const signatureResponse = await axios.get("/api/get-signature");
   //if (token) {
+  let imgid = "";
+  let imgurl = "";
+  if (file) {
+    console.log(signatureResponse.data);
+    const formData = new FormData();
+    console.log(file);
+    formData.append("api_key", api_key);
+    formData.append("file", file);
+    formData.append("signature", signatureResponse.data.signature);
+    formData.append("timestamp", signatureResponse.data.timestamp);
 
-  console.log(signatureResponse.data);
-  const formData = new FormData();
-  console.log(file);
-  formData.append("api_key", api_key);
-  formData.append("file", file);
-  formData.append("signature", signatureResponse.data.signature);
-  formData.append("timestamp", signatureResponse.data.timestamp);
+    const cloudinaryResponse = await axios.post(
+      `https://api.cloudinary.com/v1_1/${cloud_name}/upload`,
+      formData,
+      {
+        headers: { "Content-Type": "multipart/form-data" },
+        onUploadProgress: function (e) {
+          console.log(e.loaded / e.total);
+        },
+      }
+    );
+    console.log(cloudinaryResponse.data);
+    imgid = cloudinaryResponse.data.public_id;
+    imgurl = cloudinaryResponse.data.secure_url;
+  }
 
-  const cloudinaryResponse = await axios.post(
-    `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
-    formData,
-    {
-      headers: { "Content-Type": "multipart/form-data" },
-      onUploadProgress: function (e) {
-        console.log(e.loaded / e.total);
-      },
-    }
-  );
-  console.log(cloudinaryResponse.data);
-  //}
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -41,6 +46,8 @@ export const pushmovie = async ({ title, text, file }) => {
   const movie = {
     title,
     text,
+    imgid,
+    imgurl,
   };
   const body = JSON.stringify(movie);
   try {

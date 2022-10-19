@@ -49,7 +49,8 @@ const Addmovie = ({ isAuthenticated }) => {
         <div className="form-group p-3">
           <input
             type="file"
-            placeholder="Cover Image"
+            files={file}
+            accept="image/png, image/jpeg"
             onChange={(e) =>
               setFormData({ ...formData, file: e.target.files[0] })
             }

@@ -19,7 +19,7 @@ export const pushmovie = async ({ title, text, file }) => {
   formData.append("timestamp", signatureResponse.data.timestamp);
 
   const cloudinaryResponse = await axios.post(
-    "https://api.cloudinary.com/v1_1/${cloud_name}/auto/upload",
+    `https://api.cloudinary.com/v1_1/${cloud_name}/auto/upload`,
     formData,
     {
       headers: { "Content-Type": "multipart/form-data" },

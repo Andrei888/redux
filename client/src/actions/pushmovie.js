@@ -2,9 +2,20 @@ import axios from "axios";
 import { setAlert } from "./alerts";
 import store from "../store";
 
-export const pushmovie = async ({ title, text }) => {
+export const pushmovie = async ({ title, text, url }) => {
   console.log("sxxxbt");
   const token = store.getState().auth.token;
+  if (token) {
+    const formData = new FormData();
+    console.log(url);
+    formData.append("file", url[0]);
+    formData.append("upload_present", "dgleydw5w");
+    const responseTest = await axios.post(
+      "https://api.cloudinary.com/v1_1/dgleydw5w/image/upload",
+      formData
+    );
+    console.log(responseTest);
+  }
   const config = {
     headers: {
       "Content-Type": "application/json",

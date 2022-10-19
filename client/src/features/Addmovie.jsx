@@ -7,8 +7,9 @@ const Addmovie = ({ isAuthenticated }) => {
   const [formData, setFormData] = useState({
     title: "",
     text: "",
+    url: "",
   });
-  const { title, text } = formData;
+  const { title, text, url } = formData;
 
   const sumbitHandler = async (e) => {
     e.preventDefault();
@@ -16,8 +17,9 @@ const Addmovie = ({ isAuthenticated }) => {
     pushmovie({
       title,
       text,
+      url,
     });
-    setFormData({ title: "", text: "" });
+    setFormData({ title: "", text: "", url: "" });
   };
   return (
     <div className="">
@@ -42,6 +44,12 @@ const Addmovie = ({ isAuthenticated }) => {
             minLength="6"
             autoComplete="on"
             required
+          />
+          <input
+            type="file"
+            placeholder="Cover Image"
+            value={url}
+            onChange={(e) => setFormData({ ...formData, url: e.target.value })}
           />
         </div>
         <div className="form-group">

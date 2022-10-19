@@ -11,6 +11,8 @@ export const pushmovie = async ({ title, text, file }) => {
   //upload image
   const signatureResponse = await axios.get("/api/get-signature");
   //if (token) {
+
+  console.log(signatureResponse.data);
   const formData = new FormData();
   console.log(file);
   formData.append("api_key", api_key);

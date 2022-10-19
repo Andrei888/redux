@@ -1,6 +1,6 @@
 import express from "express";
 import "dotenv/config";
-const cloudinary = require("cloudinary").v2;
+import cloudinary from "cloudinary";
 
 const router = express.Router();
 

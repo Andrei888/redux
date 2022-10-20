@@ -18,7 +18,12 @@ const Logout = ({ setAlert, logout, isAuthenticated }) => {
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">
         <h1>Are you sure you want to logout?</h1>
-        <button onClick={(e) => logoutHandler(e)}>Logout!!!</button>
+        <button
+          className="btn p-4 rounded border-1 border-cyan-400 cyan-400"
+          onClick={(e) => logoutHandler(e)}
+        >
+          Logout!!!
+        </button>
       </div>
     </div>
   );

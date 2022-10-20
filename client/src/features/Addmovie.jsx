@@ -22,10 +22,11 @@ const Addmovie = ({ isAuthenticated }) => {
     setFormData({ title: "", text: "", file: "" });
   };
   return (
-    <div className="">
+    <div className="p-8 rounded border-1 ">
       <form className="form" onSubmit={(e) => sumbitHandler(e)}>
         <div className="form-group p-3">
           <input
+            className="p-4 rounded border-1 border-cyan-400"
             type="text"
             placeholder="Titlul filmului"
             value={title}
@@ -37,6 +38,7 @@ const Addmovie = ({ isAuthenticated }) => {
         </div>
         <div className="form-group p-3">
           <input
+            className="p-4 rounded border-1 border-cyan-400"
             type="text"
             placeholder="Descriere"
             value={text}
@@ -47,7 +49,15 @@ const Addmovie = ({ isAuthenticated }) => {
           />
         </div>
         <div className="form-group p-3">
+          <label
+            for="file-upload"
+            className="p-4 rounded border-1 border-cyan-400 cyan-400"
+          >
+            Urca coperta
+          </label>
           <input
+            id="file-upload"
+            className="hidden"
             type="file"
             files={file}
             accept="image/png, image/jpeg"
@@ -57,7 +67,11 @@ const Addmovie = ({ isAuthenticated }) => {
           />
         </div>
         <div className="form-group">
-          <input className="btn" type="submit" value="Adauga Film" />
+          <input
+            className="btn p-4 rounded border-1 border-cyan-400 cyan-400"
+            type="submit"
+            value="Adauga Film"
+          />
         </div>
       </form>
     </div>

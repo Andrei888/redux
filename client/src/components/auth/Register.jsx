@@ -31,6 +31,7 @@ const Register = ({ setAlert, register }) => {
         <form className="form" onSubmit={(e) => sumbitHandler(e)}>
           <div className="form-group">
             <input
+              className="p-4 rounded border-1 border-cyan-400 cyan-400"
               type="text"
               placeholder="Name"
               value={name}
@@ -42,6 +43,7 @@ const Register = ({ setAlert, register }) => {
           </div>
           <div className="form-group">
             <input
+              className="p-4 rounded border-1 border-cyan-400 cyan-400"
               type="email"
               placeholder="Email"
               value={email}
@@ -53,6 +55,7 @@ const Register = ({ setAlert, register }) => {
           </div>
           <div className="form-group">
             <input
+              className="p-4 rounded border-1 border-cyan-400 cyan-400"
               type="password"
               placeholder="password"
               value={password}
@@ -66,6 +69,7 @@ const Register = ({ setAlert, register }) => {
           </div>
           <div className="form-group">
             <input
+              className="p-4 rounded border-1 border-cyan-400 cyan-400"
               type="password"
               placeholder="Confirmation password"
               value={confirmationpassword}
@@ -81,7 +85,11 @@ const Register = ({ setAlert, register }) => {
             />
           </div>
           <div className="form-group">
-            <input className="btn" type="submit" value="Register" />
+            <input
+              className="btn p-4 rounded border-1 border-cyan-400 cyan-400"
+              type="submit"
+              value="Register"
+            />
           </div>
         </form>
         <p>

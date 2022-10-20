@@ -8,13 +8,13 @@ import axios from "axios";
 const PostPage = ({ setAlert }) => {
   const params = useParams();
   const [post, setPosts] = useState([]);
-  console.log(params);
   async function fetchData() {
     try {
       const url = "/api/posts/" + params.postId;
       const res = await axios.get(url);
       const data = res.data;
       setPosts(data);
+      console.log(data);
       setAlert("Filme Incarcate", "danger", 3000);
     } catch (error) {
       console.log(error);
@@ -39,7 +39,7 @@ const PostPage = ({ setAlert }) => {
             <div className="mr-4">
               <div
                 className="post-card_cover w-24 h-24"
-                style={{ backgroundImage: `url(${post.image.url})` }}
+                //style={{ backgroundImage: `url(${post.image.url})` }}
               ></div>
             </div>
             <div>

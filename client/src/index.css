@@ -22,12 +22,12 @@ a:hover {
 }
 
 .post-card_cover {
-  background: #ff0000;
+  background: #d4d4d4;
 }
 
 .post-card_title {
-  font-size: 4rem;
+  font-size: 2rem;
   color: rgb(34, 211, 238);
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }

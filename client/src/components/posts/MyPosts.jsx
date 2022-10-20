@@ -71,18 +71,24 @@ const MyPosts = ({ setAlert }) => {
           {posts.length === 0 && <div>Nu aveti filme adaugate personal.</div>}
           {posts.map((post) => {
             return (
-              <div className="post-card p-4" key={post.id}>
-                <h2 className="post-title">{post.title}</h2>
-                <p className="post-body">{post.text}</p>
-                <Link to={`/filme/${post.seo}`}>Detalii despre acest film</Link>
-                <button onClick={(e) => showRemoveMovie(e)}>
-                  Sterge Filmul
-                </button>
-                <div className="remove-movie-container hidden">
-                  <p>Esti sigur ca vrei sa stergi acest film?</p>
-                  <button data-id={post._id} onClick={(e) => removeMovie(e)}>
-                    Da sterge
-                  </button>
+              <div
+                className="post-card rounded border-2 border-cyan-400 p-4 mb-4 flex"
+                key={post.id}
+              >
+                <div className="mr-4">
+                  <div
+                    className="post-card_cover w-24 h-24 "
+                    style={{ backgroundImage: `url(${post.image.url})` }}
+                  ></div>
+                </div>
+                <div>
+                  <h2 className="post-card_title">{post.title}</h2>
+                  <p className="post-card_body">{post.text}</p>
+                  <p>
+                    <Link to={`/filme/${post.seo}`}>
+                      Detalii despre acest film
+                    </Link>
+                  </p>
                 </div>
               </div>
             );

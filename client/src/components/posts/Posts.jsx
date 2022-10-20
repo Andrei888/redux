@@ -33,12 +33,12 @@ const Posts = ({ setAlert }) => {
           {posts.map((post) => {
             return (
               <div
-                className="post-card rounded border-2 border-black p-4 mb-4 flex"
+                className="post-card rounded border-2 border-cyan-400 p-4 mb-4 flex"
                 key={post.id}
               >
                 <div className="mr-4">
                   <div
-                    className="post-card_cover w-6 h-6 "
+                    className="post-card_cover w-24 h-24 "
                     style={{ backgroundImage: `url(${post.image.url})` }}
                   ></div>
                 </div>

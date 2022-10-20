@@ -32,10 +32,13 @@ const PostPage = ({ setAlert }) => {
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">
         <div className="posts-container">
-          <div className="post-card p-4 flex" key={post.id}>
+          <div
+            className="post-card rounded border-2 border-cyan-400 p-4 mb-4 flex"
+            key={post.id}
+          >
             <div className="mr-4">
               <div
-                className="post-card_cover w-6 h-6 "
+                className="post-card_cover w-24 h-24"
                 style={{ backgroundImage: `url(${post.image.url})` }}
               ></div>
             </div>

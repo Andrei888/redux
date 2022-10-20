@@ -26,12 +26,12 @@ const Register = ({ setAlert, register }) => {
   return (
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">
-        <h1 className="">Register</h1>
-        <h2>Create your account</h2>
+        <h1 className="text-cyan-400 text-3xl mb-4 font-bold">Register</h1>
+        <h2 className=" mb-4 ">Create your account</h2>
         <form className="form" onSubmit={(e) => sumbitHandler(e)}>
-          <div className="form-group">
+          <div className="form-group mb-3">
             <input
-              className="p-4 rounded border-1 border-cyan-400 cyan-400"
+              className="p-4 rounded-2xl border-2 border-cyan-400"
               type="text"
               placeholder="Name"
               value={name}
@@ -41,9 +41,9 @@ const Register = ({ setAlert, register }) => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="form-group mb-3">
             <input
-              className="p-4 rounded border-1 border-cyan-400 cyan-400"
+              className="p-4 rounded-2xl border-2 border-cyan-400"
               type="email"
               placeholder="Email"
               value={email}
@@ -53,9 +53,9 @@ const Register = ({ setAlert, register }) => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="form-group mb-3">
             <input
-              className="p-4 rounded border-1 border-cyan-400 cyan-400"
+              className="p-4 rounded-2xl border-2 border-cyan-400"
               type="password"
               placeholder="password"
               value={password}
@@ -67,9 +67,9 @@ const Register = ({ setAlert, register }) => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="form-group mb-3">
             <input
-              className="p-4 rounded border-1 border-cyan-400 cyan-400"
+              className="p-4 rounded-2xl border-2 border-cyan-400"
               type="password"
               placeholder="Confirmation password"
               value={confirmationpassword}
@@ -84,9 +84,9 @@ const Register = ({ setAlert, register }) => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="form-group mb-3">
             <input
-              className="btn p-4 rounded border-1 border-cyan-400 cyan-400"
+              className="btn cursor-pointer p-4 rounded-2xl border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-white"
               type="submit"
               value="Register"
             />

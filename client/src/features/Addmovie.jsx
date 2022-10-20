@@ -22,11 +22,11 @@ const Addmovie = ({ isAuthenticated }) => {
     setFormData({ title: "", text: "", file: "" });
   };
   return (
-    <div className="p-8 rounded border-1 ">
+    <div className="p-8 rounded-2xl border-2 ">
       <form className="form" onSubmit={(e) => sumbitHandler(e)}>
-        <div className="form-group p-3">
+        <div className="form-group pb-3">
           <input
-            className="p-4 rounded border-1 border-cyan-400"
+            className="p-4 rounded-2xl border-2 border-cyan-400"
             type="text"
             placeholder="Titlul filmului"
             value={title}
@@ -36,9 +36,9 @@ const Addmovie = ({ isAuthenticated }) => {
             required
           />
         </div>
-        <div className="form-group p-3">
+        <div className="form-group pb-3">
           <input
-            className="p-4 rounded border-1 border-cyan-400"
+            className="p-4 rounded-2xl border-2 border-cyan-400"
             type="text"
             placeholder="Descriere"
             value={text}
@@ -48,10 +48,10 @@ const Addmovie = ({ isAuthenticated }) => {
             required
           />
         </div>
-        <div className="form-group p-3">
+        <div className="form-group pb-3">
           <label
             for="file-upload"
-            className="p-4 rounded border-1 border-cyan-400 cyan-400"
+            className="block cursor-pointer p-4 rounded-2xl border-2 border-cyan-400 text-cyan-400"
           >
             Urca coperta
           </label>
@@ -66,9 +66,9 @@ const Addmovie = ({ isAuthenticated }) => {
             }
           />
         </div>
-        <div className="form-group">
+        <div className="form-group pb-3">
           <input
-            className="btn p-4 rounded border-1 border-cyan-400 cyan-400"
+            className="btn cursor-pointer p-4 rounded-2xl border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-white"
             type="submit"
             value="Adauga Film"
           />

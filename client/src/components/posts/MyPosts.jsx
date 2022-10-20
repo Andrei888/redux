@@ -68,7 +68,11 @@ const MyPosts = ({ setAlert }) => {
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">
         <div className="posts-container">
-          {posts.length === 0 && <div>Nu aveti filme adaugate personal.</div>}
+          {posts.length === 0 && (
+            <div>
+              <p className="pb-4">Nu aveti filme adaugate personal.</p>
+            </div>
+          )}
           {posts.map((post) => {
             return (
               <div
@@ -94,7 +98,12 @@ const MyPosts = ({ setAlert }) => {
             );
           })}
           <div className="add-movie">
-            <button onClick={(e) => showAddMovie(e)}>Adauga film</button>
+            <button
+              className="block cursor-pointer p-4 rounded-2xl border-2 border-cyan-400 text-cyan-400"
+              onClick={(e) => showAddMovie(e)}
+            >
+              Adauga film
+            </button>
             <div id="addContainer" className="add-movie-container hidden">
               <AddMovie />
             </div>

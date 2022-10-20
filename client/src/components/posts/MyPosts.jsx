@@ -30,7 +30,7 @@ const MyPosts = ({ setAlert }) => {
   }
   useEffect(() => {
     fetchData();
-  }, []);
+  });
   const showAddMovie = (e) => {
     e.preventDefault();
     e.target.classList.toggle("hidden");

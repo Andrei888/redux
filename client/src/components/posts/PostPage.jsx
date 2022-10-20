@@ -26,16 +26,23 @@ const PostPage = ({ setAlert }) => {
     }
   }
   useEffect(() => {
-    console.log("effect-post");
     fetchData();
   }, []);
   return (
     <div className="flex min-h-screen justify-center content-center items-center">
       <div className="justify-center content-center p-10 bg-white rounded-lg">
         <div className="posts-container">
-          <div className="post-card p-4" key={post.id}>
-            <h2 className="post-title">{post.title}</h2>
-            <p className="post-body">{post.text}</p>
+          <div className="post-card p-4 flex" key={post.id}>
+            <div className="mr-4">
+              <div
+                className="post-card_cover w-6 h-6 "
+                style={`background-image:url(${post.image.url})`}
+              ></div>
+            </div>
+            <div>
+              <h2 className="post-card_title">{post.title}</h2>
+              <p className="post-card_body">{post.text}</p>
+            </div>
           </div>
         </div>
       </div>

@@ -32,10 +32,25 @@ const Posts = ({ setAlert }) => {
         <div className="posts-container">
           {posts.map((post) => {
             return (
-              <div className="post-card p-4" key={post.id}>
-                <h2 className="post-title">{post.title}</h2>
-                <p className="post-body">{post.text}</p>
-                <Link to={`/filme/${post.seo}`}>Detalii despre acest film</Link>
+              <div
+                className="post-card rounded border-2 border-black p-4 mb-4 flex"
+                key={post.id}
+              >
+                <div className="mr-4">
+                  <div
+                    className="post-card_cover w-6 h-6 "
+                    style={`background-image:url(${post.image.url})`}
+                  ></div>
+                </div>
+                <div>
+                  <h2 className="post-card_title">{post.title}</h2>
+                  <p className="post-card_body">{post.text}</p>
+                  <p>
+                    <Link to={`/filme/${post.seo}`}>
+                      Detalii despre acest film
+                    </Link>
+                  </p>
+                </div>
               </div>
             );
           })}

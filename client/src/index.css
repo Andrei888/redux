@@ -14,3 +14,22 @@ body {
   right: 0;
   background: #fff;
 }
+
+.post_cover {
+  background: #ff0000;
+}
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  a {
+    @apply text-blue-600 underline;
+  }
+}

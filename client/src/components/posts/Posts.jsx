@@ -39,7 +39,7 @@ const Posts = ({ setAlert }) => {
                 <div className="mr-4">
                   <div
                     className="post-card_cover w-6 h-6 "
-                    style={`background-image:url(${post.image.url})`}
+                    style={{ backgroundImage: url(post.image.url) }}
                   ></div>
                 </div>
                 <div>

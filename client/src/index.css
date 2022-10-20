@@ -6,7 +6,13 @@ body {
   background: #fff url("./img/default-bg.jpg") scroll 0 0 no-repeat;
   background-size: cover;
 }
-
+a {
+  text-decoration: underline;
+  color: rgb(34, 211, 238);
+}
+a:hover {
+  text-decoration: none;
+}
 .alert {
   position: fixed;
   padding: 10px;
@@ -15,21 +21,13 @@ body {
   background: #fff;
 }
 
-.post_cover {
+.post-card_cover {
   background: #ff0000;
 }
 
-@layer base {
-  h1 {
-    @apply text-2xl;
-  }
-  h2 {
-    @apply text-xl;
-  }
-  h3 {
-    @apply text-lg;
-  }
-  a {
-    @apply text-blue-600 underline;
-  }
+.post-card_title {
+  font-size: 4rem;
+  color: rgb(34, 211, 238);
+  font-weight: 700;
+  margin-bottom: 1rem;
 }

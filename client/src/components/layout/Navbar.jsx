@@ -4,6 +4,7 @@ import "./navbar.css";
 import logo from "../../logo.jpeg";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import Search from "./Search";
 
 function Navbar({ isAuthenticated }) {
   let loggedinNav;
@@ -81,7 +82,9 @@ function Navbar({ isAuthenticated }) {
           <img src={logo} alt="React Logo" />
         </a>
       </div>
-      <div className="navBar">{loggedinNav}</div>
+      <div className="navBar">
+        {loggedinNav} <Search />
+      </div>
     </div>
   );
 }

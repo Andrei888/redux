@@ -1,7 +1,7 @@
-import React, { useEffect, setState } from "react";
+import { React, useState, useEffect } from "react";
 
 function Search() {
-  const [searchList, setSearchList] = setState();
+  const [searchList, setSearchList] = useState();
   async function fetchMovies() {
     const res = await axios.get("/api/posts");
     setSearchList(res.data);

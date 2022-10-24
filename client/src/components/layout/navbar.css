@@ -31,3 +31,20 @@
   padding: 8px;
   border: 1px solid #000;
 }
+.module-search_results {
+  display: none;
+  position: absolute;
+  top: 70%;
+  right: 0;
+}
+.js--results.module-search_results {
+  display: block;
+}
+
+.module-search_results_container {
+  max-height: 400px;
+  overflow: auto;
+  background: #fff;
+  padding: 15px;
+  min-width: 260px;
+}

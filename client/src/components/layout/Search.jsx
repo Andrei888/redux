@@ -4,12 +4,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function Search() {
-  const [searchList, setSearchList] = useState([]);
+  const [movies, updateMovies] = useState({
+    initialList: [],
+    movies: [],
+    showresults: "",
+  });
   async function fetchMovies() {
-    const res = await axios.get("/api/posts");
+    const res = await axios.get("https://first-social.herokuapp.com/api/posts");
     const data = res.data;
-    setSearchList(data);
-    console.log(searchList);
+    updateMovies({
+      ...movies,
+      initialList: data,
+    });
   }
   useEffect(() => {
     fetchMovies();
@@ -24,18 +30,26 @@ function Search() {
   };
   const searchHandler = (e) => {
     const searchInput = e.target;
-    const value = searchInput.value;
-    console.log(value);
-    if (searchList && value.length > 2) {
-      console.log(searchList);
-      searchList.filter((movie) => {
-        console.log(movie);
-        return movie.indexOf(value) > -1 ? true : false;
+    const value = searchInput.value.toLowerCase();
+    if (movies.initialList && value.length > 2) {
+      const moviesFilter = movies.initialList.filter((movie) => {
+        return movie.title.toLowerCase().indexOf(value) > -1 ? true : false;
+      });
+      updateMovies({
+        ...movies,
+        movies: moviesFilter,
+        showresults: moviesFilter.length > 0 ? "js--results" : "",
+      });
+    } else {
+      updateMovies({
+        ...movies,
+        movies: [],
+        showresults: "",
       });
     }
   };
   return (
-    <div className="module-search p-2">
+    <div className="module-search p-1 ">
       <div className="module-search_input-container">
         <input
           id="search-value"
@@ -52,7 +66,13 @@ function Search() {
       >
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </button>
-      <div className="module-search_results"></div>
+      <div className={`module-search_results ${movies.showresults}`}>
+        <div className="module-search_results_container">
+          {movies.movies.map((movie, index) => {
+            return <div key={index}>{movie.title}</div>;
+          })}
+        </div>
+      </div>
     </div>
   );
 }

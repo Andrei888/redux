@@ -23,7 +23,6 @@ const Posts = ({ setAlert }) => {
     }
   }
   useEffect(() => {
-    console.log("effect-postss");
     fetchData();
   }, []);
   return (

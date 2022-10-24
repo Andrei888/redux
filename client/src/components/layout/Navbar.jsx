@@ -82,7 +82,7 @@ function Navbar({ isAuthenticated }) {
           <img src={logo} alt="React Logo" />
         </a>
       </div>
-      <div className="navBar">
+      <div className="navBar flex">
         {loggedinNav} <Search />
       </div>
     </div>

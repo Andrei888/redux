@@ -12,3 +12,22 @@
 .navBar .active {
   color: #001ec7;
 }
+
+.module-search {
+  position: relative;
+}
+.module-search_input-container {
+  position: absolute;
+  z-index: 5;
+  right: 100%;
+  top: 0;
+  max-width: 0;
+  overflow: hidden;
+}
+.module-search.js--open .module-search_input-container {
+  max-width: 500px;
+}
+.module-search_input {
+  padding: 8px;
+  border: 1px solid #000;
+}

@@ -77,7 +77,7 @@ const ChangeMovie = (props) => {
   );
 };
 
-Addmovie.propTypes = {
+ChangeMovie.propTypes = {
   isAuthenticated: PropTypes.bool,
 };
 const mapStateToProps = (state) => ({

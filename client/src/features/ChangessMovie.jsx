@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { pushmovie } from "../actions/pushmovie";
 
-const changeMovie = (props) => {
+const ChangeMovie = (props) => {
   const [formData, setFormData] = useState({
     title: props.title ? props.title : "",
     text: props.text ? props.text : "",
@@ -85,4 +85,4 @@ const mapStateToProps = (state) => ({
   movies: state.movies,
 });
 
-export default connect(mapStateToProps, {})(changeMovie);
+export default connect(mapStateToProps, {})(ChangeMovie);

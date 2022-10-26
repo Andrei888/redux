@@ -42,7 +42,7 @@ const MyPosts = ({ setAlert }) => {
     post.edit = true;
     console.log(posts);
     const newposts = posts.map((item) => {
-      item.edit = true;
+      return { ...item, edit: true };
     });
     console.log(newposts);
     //setPosts(newposts);

@@ -100,7 +100,7 @@ const MyPosts = ({ setAlert }) => {
                     </p>
                   </div>
                   <div class="post-card_edit">
-                    <AddMovie title={post.title} text={post.text} />
+                    {post.edit ? "No edi" : "edi"}
                   </div>
                   <button
                     data-id={post.seo}

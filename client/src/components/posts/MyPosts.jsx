@@ -100,9 +100,7 @@ const MyPosts = ({ setAlert }) => {
                     </p>
                   </div>
                   <div class="post-card_edit">
-                    {post.edit && (
-                      <AddMovie title={post.title} text={post.text} />
-                    )}
+                    <AddMovie title={post.title} text={post.text} />
                   </div>
                   <button
                     data-id={post.seo}

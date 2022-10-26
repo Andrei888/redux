@@ -93,6 +93,9 @@ const MyPosts = ({ setAlert }) => {
                       Detalii despre acest film
                     </Link>
                   </p>
+                  <button data-id={post.seo} onClick={(e) => removeMovie(e)}>
+                    Sterge film
+                  </button>
                 </div>
               </div>
             );

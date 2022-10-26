@@ -40,11 +40,11 @@ const MyPosts = ({ setAlert }) => {
   const changeMovie = (e, post) => {
     e.preventDefault();
     post.edit = true;
-    console.log(post);
-    posts.map((item) => {
+    const newposts = posts.map((item) => {
       item.edit = true;
     });
-    setPosts(posts);
+    console.log(newposts);
+    setPosts(newposts);
   };
 
   const removeMovie = async (e) => {

@@ -37,6 +37,10 @@ const MyPosts = ({ setAlert }) => {
     const showMovie = document.getElementById("addContainer");
     showMovie.classList.remove("hidden");
   };
+  const changeMovie = (e, post) => {
+    e.preventDefault();
+    console.log(post);
+  };
 
   const removeMovie = async (e) => {
     e.preventDefault();
@@ -74,20 +78,33 @@ const MyPosts = ({ setAlert }) => {
                 className="post-card rounded border-2 border-cyan-400 p-4 mb-4 flex"
                 key={post.id}
               >
-                <div className="mr-4">
-                  <div
-                    className="post-card_cover w-24 h-24 "
-                    style={{ backgroundImage: `url(${post.image.url})` }}
-                  ></div>
-                </div>
-                <div>
-                  <h2 className="post-card_title">{post.title}</h2>
-                  <p className="post-card_body">{post.text}</p>
-                  <p>
-                    <Link to={`/filme/${post.seo}`}>
-                      Detalii despre acest film
-                    </Link>
-                  </p>
+                <div class="post-card_info">
+                  <div className="mr-4">
+                    <div
+                      className="post-card_cover w-24 h-24 "
+                      style={{ backgroundImage: `url(${post.image.url})` }}
+                    ></div>
+                  </div>
+                  <div>
+                    <h2 className="post-card_title">{post.title}</h2>
+                    <p className="post-card_body">{post.text}</p>
+                    <p>
+                      <Link to={`/filme/${post.seo}`}>
+                        Detalii despre acest film
+                      </Link>
+                    </p>
+                  </div>
+                  <div class="post-card_edit">
+                    {post.edit && (
+                      <AddMovie title={post.title} text={post.text} />
+                    )}
+                  </div>
+                  <button
+                    data-id={post.seo}
+                    onClick={(e) => changeMovie(e, post)}
+                  >
+                    Editeaza film
+                  </button>
                   <button data-id={post.seo} onClick={(e) => removeMovie(e)}>
                     Sterge film
                   </button>

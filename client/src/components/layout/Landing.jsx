@@ -12,7 +12,7 @@ function Landing({ isAuthenticated }) {
       <ul className="flex justify-center content-center p-10 bg-white rounded-lg">
         <li className="p-4">
           <Link
-            className="rounded-full border-cyan-400 border-2 bg-cyan-400 p-4 m-2"
+            className="rounded-full border-cyan-400 border-2 bg-cyan-400 p-4 m-2 text-white font-bold  hover:text-red"
             to="/register"
           >
             Register
@@ -20,7 +20,7 @@ function Landing({ isAuthenticated }) {
         </li>
         <li className="p-4">
           <Link
-            className="rounded-full border-cyan-400 border-2 bg-cyan-400 p-4 m-2 hover:red"
+            className="rounded-full border-cyan-400 border-2 bg-cyan-400 p-4 m-2 hover:text-red text-white font-bold"
             to="/login"
           >
             Login

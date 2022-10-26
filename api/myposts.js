@@ -26,7 +26,6 @@ router.get("/", [auth], async (req, res) => {
       .json({ msg: "you are not authorized to view this resource!" });
   }
 
-  console.log(token);
   try {
     const decoded = JsonWebToken.verify(token, process.env.jwtSecret);
     req.user = decoded.user;
@@ -100,10 +99,12 @@ router.put(
 router.delete("/:postseo", auth, async (request, response) => {
   // sort the post desceding by added date
   try {
-    const post = await Post.findById(request.params.postseo);
+    console.log("posty", request.params.postseo);
+    const post = await Post.findOne({ seo: request.params.postseo });
 
     // check if the user that delete the post is the owner
     // post.user is not of type string, but ObjectId
+    console.log(post);
     if (post.user.toString() !== request.user.id) {
       return response
         .status(401)

@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import store from "../../store";
 import AddMovie from "../../features/Addmovie";
+import changeMovie from "../../features/changeMovie";
 
 const MyPosts = ({ setAlert }) => {
   const [posts, setPosts] = useState([]);
@@ -100,8 +101,8 @@ const MyPosts = ({ setAlert }) => {
                       </Link>
                     </p>
                   </div>
-                  <div class="post-card_edit">
-                    {post.edit ? "No edi" : "edi"}
+                  <div id="editContainer" className="post-card_edit hidden">
+                    <changeMovie title={post.title} text={post.text} />
                   </div>
                   <button
                     data-id={post.seo}

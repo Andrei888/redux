@@ -35,14 +35,6 @@ function Navbar({ isAuthenticated }) {
             Filme
           </NavLink>
         </li>
-        <li className="p-2">
-          <NavLink
-            className={(navData) => (navData.isActive ? "active" : "")}
-            to="/filmele-mele"
-          >
-            Filmele mele
-          </NavLink>
-        </li>
       </ul>
     );
   } else {

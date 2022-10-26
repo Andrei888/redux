@@ -37,18 +37,13 @@ const MyPosts = ({ setAlert }) => {
     const showMovie = document.getElementById("addContainer");
     showMovie.classList.remove("hidden");
   };
-  const showRemoveMovie = (e) => {
-    e.preventDefault();
-    e.target.classList.toggle("hidden");
-    const showMovie = e.target.nextSibling;
-    showMovie.classList.remove("hidden");
-  };
+
   const removeMovie = async (e) => {
     e.preventDefault();
 
     const token = store.getState().auth.token;
     try {
-      const url = "/api/posts/" + e.target.getAttribute("data-id");
+      const url = "/api/myposts/" + e.target.getAttribute("data-id");
       const res = await axios.delete(url, {
         headers: {
           "x-auth-token": token ? token : "",

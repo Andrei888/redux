@@ -10,7 +10,7 @@ function Search() {
     showresults: "",
   });
   async function fetchMovies() {
-    const res = await axios.get("https://first-social.herokuapp.com/api/posts");
+    const res = await axios.get("/api/posts");
     const data = res.data;
     updateMovies({
       ...movies,

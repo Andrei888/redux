@@ -97,10 +97,10 @@ router.put(
 // @route         DELETE api/posts/:id
 // @description   Delete post by id
 // @access        Private - only logged in users can see all posts from all users
-router.delete("/:post_id", auth, async (request, response) => {
+router.delete("/:postseo", auth, async (request, response) => {
   // sort the post desceding by added date
   try {
-    const post = await Post.findById(request.params.post_id);
+    const post = await Post.findById(request.params.postseo);
 
     // check if the user that delete the post is the owner
     // post.user is not of type string, but ObjectId

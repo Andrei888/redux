@@ -39,6 +39,7 @@ const MyPosts = ({ setAlert }) => {
   };
   const changeMovie = (e, post) => {
     e.preventDefault();
+    post.edit = true;
     console.log(post);
   };
 

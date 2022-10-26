@@ -45,7 +45,7 @@ const MyPosts = ({ setAlert }) => {
       return { ...item, edit: true };
     });
     console.log(newposts);
-    //setPosts(newposts);
+    setPosts(newposts);
   };
 
   const removeMovie = async (e) => {

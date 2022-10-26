@@ -41,6 +41,9 @@ const MyPosts = ({ setAlert }) => {
     e.preventDefault();
     post.edit = true;
     console.log(post);
+    posts.map((item) => {
+      item.edit = true;
+    });
   };
 
   const removeMovie = async (e) => {

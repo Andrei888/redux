@@ -8,8 +8,9 @@ const Addmovie = ({ isAuthenticated }) => {
     title: "",
     text: "",
     file: "",
+    fileName: "Urca coperta",
   });
-  const { title, text, file } = formData;
+  const { title, text, file, fileName } = formData;
 
   const sumbitHandler = async (e) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ const Addmovie = ({ isAuthenticated }) => {
       text,
       file,
     });
-    setFormData({ title: "", text: "", file: "" });
+    setFormData({ title: "", text: "", file: "", fileName: "Urca coperta" });
   };
   return (
     <div className="p-8 rounded-2xl border-2 ">
@@ -53,7 +54,7 @@ const Addmovie = ({ isAuthenticated }) => {
             for="file-upload"
             className="block cursor-pointer p-4 rounded-2xl border-2 border-cyan-400 text-cyan-400"
           >
-            Urca coperta
+            {fileName}
           </label>
           <input
             id="file-upload"
@@ -62,7 +63,11 @@ const Addmovie = ({ isAuthenticated }) => {
             files={file}
             accept="image/png, image/jpeg"
             onChange={(e) =>
-              setFormData({ ...formData, file: e.target.files[0] })
+              setFormData({
+                ...formData,
+                file: e.target.files[0],
+                fileName: e.target.files[0].name,
+              })
             }
           />
         </div>

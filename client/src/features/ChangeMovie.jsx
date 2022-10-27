@@ -49,13 +49,13 @@ const ChangeMovie = (props) => {
         </div>
         <div className="form-group pb-3">
           <label
-            for="file-upload"
+            for={`file-upload-${props.seo}`}
             className="block cursor-pointer p-4 rounded-2xl border-2 border-cyan-400 text-cyan-400"
           >
             Urca coperta
           </label>
           <input
-            id="file-upload"
+            id={`file-upload-${props.seo}`}
             className="hidden"
             type="file"
             files={file}
